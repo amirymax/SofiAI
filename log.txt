@@ -1,0 +1,25 @@
+open microsoft word : word
+thank you : thanks
+increased volume : increase volume
+increased volume : increase volume
+increased volume : increase volume
+increased volume : increase volume
+decrease volume : decrease volume
+decrease volume : decrease volume
+volume to the middle : middle volume
+decrees would you : decrease volume
+decrease volume : decrease volume
+decrees would you : decrease volume
+decrease volume : decrease volume
+decrees would you : decrease volume
+increased volume : increase volume
+mute : mute volume
+max volume : max volume
+want him to the middle : middle volume
+want to the middle : middle volume
+decrease volume : decrease volume
+increased volume : increase volume
+mute : mute volume
+max volume : max volume
+increased volume : increase volume
+thank you : thanks
