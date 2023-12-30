@@ -14,7 +14,8 @@ from comtypes import cast, POINTER, CoInitialize, CoUninitialize, CLSCTX_ALL
 from pycaw.pycaw import AudioUtilities, IAudioEndpointVolume
 
 
-class Sofi:
+
+class SophieAI:
     def __init__(self) -> None:
 
         self.torch_model, _ = torch.hub.load(repo_or_dir='snakers4/silero-models',
@@ -28,6 +29,7 @@ class Sofi:
         self.log = open('log.txt', 'a')
 
     def listen(self) -> None:
+        
         self.say('I am listening to you sir. What did you want?')
         q = queue.Queue()
         samplerate = 16000
@@ -93,6 +95,7 @@ class Sofi:
         sd.stop()
 
     def execute(self, cmd: str) -> None:
+        CoInitialize()
         if cmd == 'help':
             # help
             text = 'I can: ...'
@@ -263,3 +266,8 @@ class Sofi:
 
     def talk(self) -> None:
         pass
+
+if __name__=='__main__':
+
+    model = SophieAI()
+    model.listen()

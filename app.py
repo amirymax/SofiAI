@@ -1,14 +1,14 @@
 from flask import Flask, render_template, request
-from SofiAI import Sofi
+from SophieAI import SophieAI
 from comtypes import CoInitialize, CoUninitialize
-
+CoInitialize()
 app = Flask(__name__)
-model = Sofi()
+model = SophieAI()
 
 
 @app.route('/')
 def home():
-    CoInitialize()
+    
     return render_template('index.html')
 
 

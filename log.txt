@@ -1,25 +1,8 @@
-open microsoft word : word
-thank you : thanks
-increased volume : increase volume
-increased volume : increase volume
-increased volume : increase volume
-increased volume : increase volume
-decrease volume : decrease volume
-decrease volume : decrease volume
-volume to the middle : middle volume
-decrees would you : decrease volume
-decrease volume : decrease volume
-decrees would you : decrease volume
-decrease volume : decrease volume
-decrees would you : decrease volume
-increased volume : increase volume
-mute : mute volume
-max volume : max volume
-want him to the middle : middle volume
-want to the middle : middle volume
-decrease volume : decrease volume
-increased volume : increase volume
-mute : mute volume
-max volume : max volume
-increased volume : increase volume
-thank you : thanks
+open edge : edge
+open chrome : chrome
+thank you so much : thanks
+me commons look : log
+mute volume : mute volume
+volume to the max : max volume
+mute volume : mute volume
+avoid him to the max : max volume
