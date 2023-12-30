@@ -10,8 +10,7 @@ import time
 import os
 from random import choice
 import num2word
-from ctypes import cast, POINTER
-from comtypes import CLSCTX_ALL
+from comtypes import cast, POINTER, CoInitialize, CoUninitialize, CLSCTX_ALL
 from pycaw.pycaw import AudioUtilities, IAudioEndpointVolume
 
 
@@ -25,7 +24,7 @@ class Sofi:
         self.torch_model.to(torch.device('cpu'))
 
         self.vosk_model = vosk.Model(
-            "C:\\Users\\Sofia\\Desktop\\ITMO\\Web-Apps Developing 3-1\\SofiAI\\backend\\model-small")
+            "model-small")
         self.log = open('log.txt', 'a')
 
     def listen(self) -> None:
