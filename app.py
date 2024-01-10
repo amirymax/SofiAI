@@ -7,8 +7,7 @@ model = SophieAI()
 
 
 @app.route('/')
-def home():
-    
+def home():    
     return render_template('index.html')
 
 
