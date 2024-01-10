@@ -49,7 +49,8 @@ body {
   position: absolute;
   left: 0.3785rem;
   top: 8.5983rem;
-  background: radial-gradient(54.13% 54.13% at 48.1% 45.87%, #14b2a9 0%, #000000 100%);
+  /* background: radial-gradient(54.13% 54.13% at 48.1% 45.87%, #14b2a9 0%, #000000 100%); */
+  background-color: #221f1f;
   border-radius: 1.2438rem;
 }
 .style-SR7 .sofiai-ui-cU1 .upper-div-qQd {
@@ -175,8 +176,7 @@ body {
   color: #01f5f1;
   font-family: Big Shoulders Stencil Text, 'Source Sans Pro';
 }
-.style-SR7 .sofiai-ui-cU1 .author-sa-group-project-sofiai-7uB .author-sa-group-project-sofiai-7uB-sub-0 {
-}
+
 .style-SR7 .sofiai-ui-cU1 .author-sa-group-project-sofiai-7uB .author-sa-group-project-sofiai-7uB-sub-1 {
   font-size: 1.9468rem;
   font-weight: 800;
@@ -219,8 +219,7 @@ body {
   color: #01f5f1;
   font-family: Stick No Bills, 'Source Sans Pro';
 }
-.style-SR7 .sofiai-ui-cU1 .neuralnetwork-chatgpt-vosk-yrq .neuralnetwork-chatgpt-vosk-yrq-sub-1 {
-}
+
 .style-SR7 .sofiai-ui-cU1 .ram-03-mb-3ER {
   width: 4.4rem;
   height: 4.1rem;
@@ -241,8 +240,8 @@ body {
   color: #01f5f1;
   font-family: Stick No Bills, 'Source Sans Pro';
 }
-.style-SR7 .sofiai-ui-cU1 .ram-03-mb-3ER .ram-03-mb-3ER-sub-1 {
-}
+
+
 .style-SR7 .sofiai-ui-cU1 .commands-wDK {
   width: 7.4rem;
   height: 1.6rem;
@@ -253,7 +252,7 @@ body {
   font-size: 1.2979rem;
   font-weight: 700;
   line-height: 1.1825;
-  color: #9f64ff;
+  color: #4c06bc;
   font-family: Jura, 'Source Sans Pro';
   white-space: nowrap;
 }
@@ -267,20 +266,46 @@ body {
   font-size: 1.2979rem;
   font-weight: 700;
   line-height: 1.1825;
-  color: #9f64ff;
+  color: #4c06bc;
   font-family: Jura, 'Source Sans Pro';
   white-space: nowrap;
 }
 .style-SR7 .sofiai-ui-cU1 .sofia-Wvd {
   width: 7.6rem;
-  height: 2.9rem;
-  position: absolute;
-  left: 15.0876rem;
-  top: 25.2rem;
+  height: 2.9rem;  
+  position: relative;
+  left: 38%;
+  top: 26rem;
   font-size: 2.5957rem;
   font-weight: 400;
   line-height: 1.1;
   color: #ffffff;
   font-family: Tourney, 'Source Sans Pro';
   white-space: nowrap;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 2.5092rem #01f9f1;
+  }
+  50% {
+    box-shadow: 0 0 5rem #01f9f1; /* size of the shadow */
+  }
+  100% {
+    box-shadow: 0 0 2.5092rem #01f9f1;
+  }
+}
+
+.style-SR7 .sofiai-ui-cU1 .ellipse-1-DT7 {
+  width: 19.4678rem;
+  height: 19.4678rem;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border: solid 0.1082rem #02fff4;
+  box-sizing: border-box;
+  background-color: #285554;
+  border-radius: 9.7339rem;
+  animation: pulse 2.5s infinite; /* animation duration */
 }
