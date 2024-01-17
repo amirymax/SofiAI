@@ -9,7 +9,7 @@ from g4f.Provider import (
 )
 
 options = ChromeOptions()
-options.add_argument("--incognito");
+options.add_argument("--incognito")
 webdriver = Chrome(options=options, headless=True)
 for idx in range(10):
     response = g4f.ChatCompletion.create(
