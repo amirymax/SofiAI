@@ -108,6 +108,28 @@ body {
   background-color: #285554;
   border-radius: 9.7339rem;
 }
+.style-SR7 .sofiai-ui-cU1 .commands-dWq,
+.style-SR7 .sofiai-ui-cU1 .log-7S1 {
+  width: 8.5983rem;
+  height: 2.3794rem;
+  position: absolute;
+  color: #4c06bc;
+  background-color: #c4c4c4;
+  border-radius: 0.6489rem;
+  text-align: center;
+  font-size: 1.2979rem;
+  font-weight: bold;
+  line-height: 1.1825;
+  font-family: Jura, 'Source Sans Pro';
+  white-space: nowrap;
+  cursor: pointer;
+  border: none;
+}
+
+.style-SR7 .sofiai-ui-cU1 .commands-dWq:hover,
+.style-SR7 .sofiai-ui-cU1 .log-7S1:hover {
+  background-color: #a9a9a9;
+}
 .style-SR7 .sofiai-ui-cU1 .commands-dWq {
   width: 8.5983rem;
   height: 2.3794rem;
@@ -308,4 +330,36 @@ body {
   background-color: #285554;
   border-radius: 9.7339rem;
   animation: pulse 2.5s infinite; /* animation duration */
+}
+
+
+
+
+
+#commandsList {
+  display: none;
+  position: fixed;
+  font-size: 16px;
+  border: 7px solid #01f5f1;
+  top: 30px;
+  right: 20px;
+  padding: 20px;
+  color: #faffff;
+  font-family: 'Courier New', Courier, monospace;
+  background-color: #221f1f; 
+  border-radius: 10px;
+  z-index: 1000; 
+}
+
+#commandsList ul {
+  list-style: none;
+  padding: 0;
+}
+
+#commandsList li {
+  margin-bottom: 10px;
+}
+
+#commandsList :hover{
+  background-color: #3c3939;
 }

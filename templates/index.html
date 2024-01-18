@@ -5,7 +5,7 @@
   <link rel="icon" href="/favicon.ico" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#000000" />
-  <title>SofiAI</title>
+  
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro%3A300%2C400%2C700%2C800"/>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Stick+No+Bills%3A300%2C800"/>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Big+Shoulders+Stencil+Text%3A800"/>
@@ -13,10 +13,12 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter%3A800"/>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Jura%3A700"/>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Handjet%3A800"/>
-  <link rel="stylesheet" href="./styles/style.css"/>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"/>
+  <title>SofiAI</title>
 </head>
 <body>
 <div class="style-SR7">
+  
   <div class="sofiai-ui-cU1">
     <div class="rectangle-2-jaZ">
     </div>
@@ -34,16 +36,14 @@
     </div>
     <div class="ellipse-1-DT7">
     </div>
-    <div class="commands-dWq">
-    </div>
-    <div class="log-7S1">
-    </div>
+    <button class="commands-dWq" onclick="commands()">Commands</button>
+    
+    <button class="log-7S1" onclick="log()">Log</button>
     <div class="settings-oJq">
     </div>
     <p class="microphone-realtek-audio-Fgd">
       <span class="microphone-realtek-audio-Fgd-sub-0">Microphone</span>
-      <span class="microphone-realtek-audio-Fgd-sub-1">
-       
+      <span class="microphone-realtek-audio-Fgd-sub-1" id = 'microphoneStatus'>
       <br/>
       Realtek Audio 
       </span>
@@ -73,10 +73,14 @@
       0.3 mb
       </span>
     </p>
-    <p class="commands-wDK">Commands</p>
-    <p class="log-c4Z">Log</p>
+
     <p class="sofia-Wvd">SofiAI</p>
+    
+  
   </div>
+  
 </div>
+<div id="commandsList"></div>
+<script type="text/javascript" src="{{ url_for('static', filename='js/app.js') }}"></script>
 </body>
 </html>
