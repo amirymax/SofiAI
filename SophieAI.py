@@ -26,9 +26,11 @@ class SophieAI:
 
         self.vosk_model = vosk.Model(
             "model-small")
-        self.log = open('log.txt', 'a')
+        self.log = open('static/js/log.txt', 'a')
+        self.listen_commands = True
 
     def listen(self) -> None:
+        self.listen_commands = True
         
         self.say('I am listening to you sir. What did you want?')
         q = queue.Queue()
@@ -61,13 +63,17 @@ class SophieAI:
             for x in config.VA_TBR:
                 cmd = cmd.replace(x, "").strip()
             print(f'CMD: {cmd}')
-            self.log.write(cmd + ' : ')
+            try:
+                self.log.write(cmd + ' : ')
+            except ValueError:
+                self.log = open('static/js/log.txt', 'a')
+                self.log.write(cmd + ' : ')
             return cmd
         with sd.RawInputStream(samplerate=samplerate, blocksize=8000, device=device, dtype='int16',
                                channels=1, callback=q_callback):
 
             rec = vosk.KaldiRecognizer(self.vosk_model, samplerate)
-            while True:
+            while self.listen_commands == True:
                 data = q.get()
                 if rec.AcceptWaveform(data):
                     voice = json.loads(rec.Result())["text"]
@@ -93,7 +99,8 @@ class SophieAI:
         sd.play(audio, sample_rate * 1.05)
         time.sleep((len(audio) / sample_rate) + 0.5)
         sd.stop()
-
+    def stop_listening(self):
+        self.listen_commands = False
     def execute(self, cmd: str) -> None:
         CoInitialize()
         if cmd == 'help':
@@ -122,8 +129,8 @@ class SophieAI:
         elif cmd == 'joke':
             from random import choice
             jokes = ['There are ten kinds of people in the world. Those who understand binary and those who don’t.',
-                     'How do progammers laugh? ... exe exeexe',
-                     'Knock, knock. Who’s There? Very long pause… “Java.”',
+                     'How do progammers laugh? exe exeexe',
+                     'Knock, knock. Who’s There? Very long pause, “Java.”',
                      'Programming is 10% writing code and nineteen percent understanding why it’s not working']
 
             self.say(choice(jokes))
@@ -137,7 +144,7 @@ class SophieAI:
                 self.say('Chrome opened successfully')
             else:
                 self.say(
-                    'Chrome browser is not found on your computer. Try another brower.')
+                    'Chrome browser is not found on your computer. Try another browser.')
 
         elif cmd == 'edge':
             self.say('Processing sir...')
@@ -160,10 +167,10 @@ class SophieAI:
         elif cmd == 'log':
             self.say('Processing sir...')
             self.log.close()
-            terminal_output = os.system('start log.txt')
+            terminal_output = os.system('start static/js/log.txt')
             if not terminal_output:
                 self.say("Command's log opened successfully")
-                self.log = open('log.txt', 'a')
+                self.log = open('static/js/log.txt', 'a')
             else:
                 self.say('There was an error while processing. Please try again!')
 
@@ -199,9 +206,6 @@ class SophieAI:
         
         elif cmd == 'mute volume':
             self.mute_volume()
-
-    def open(self, program_name) -> None:
-        pass
 
     def increase_volume(self) -> None:
         self.set_volume('+')
@@ -255,19 +259,9 @@ class SophieAI:
         volume_control = cast(interface, POINTER(IAudioEndpointVolume))
         return volume_control
 
-    def google(self, request) -> None:
-        pass
-
-    def restart_pc(self) -> None:
-        pass
-
-    def turn_off_pc(self) -> None:
-        pass
-
-    def talk(self) -> None:
-        pass
 
 if __name__=='__main__':
-
+    
     model = SophieAI()
-    model.listen()
+    # model.say('how are you sir?')
+    # model.listen()

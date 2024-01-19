@@ -1,86 +1,101 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8" />
-  <link rel="icon" href="/favicon.ico" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#000000" />
-  
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro%3A300%2C400%2C700%2C800"/>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Stick+No+Bills%3A300%2C800"/>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Big+Shoulders+Stencil+Text%3A800"/>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tourney%3A400%2C800"/>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter%3A800"/>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Jura%3A700"/>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Handjet%3A800"/>
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"/>
-  <title>SofiAI</title>
-</head>
-<body>
-<div class="style-SR7">
-  
-  <div class="sofiai-ui-cU1">
-    <div class="rectangle-2-jaZ">
-    </div>
-    <div class="rectangle-1-mXF">
-    </div>
-    <div class="upper-div-qQd">
-    </div>
-    <div class="lower-div-wiZ">
-    </div>
-    <div class="mic-ess">
-    </div>
-    <div class="neuro-93w">
-    </div>
-    <div class="ram-NxH">
-    </div>
-    <div class="ellipse-1-DT7">
-    </div>
-    <button class="commands-dWq" onclick="commands()">Commands</button>
-    
-    <button class="log-7S1" onclick="log()">Log</button>
-    <div class="settings-oJq">
-    </div>
-    <p class="microphone-realtek-audio-Fgd">
-      <span class="microphone-realtek-audio-Fgd-sub-0">Microphone</span>
-      <span class="microphone-realtek-audio-Fgd-sub-1" id = 'microphoneStatus'>
-      <br/>
-      Realtek Audio 
-      </span>
-    </p>
-    <p class="author-sa-group-project-sofiai-7uB">
-      <span class="author-sa-group-project-sofiai-7uB-sub-0">
-      Author: S.A Group
-      <br/>
-      Project: 
-      </span>
-      <span class="author-sa-group-project-sofiai-7uB-sub-1">SofiAI</span>
-    </p>
-    <p class="all-rights-reserved-2023-MaZ">© All rights reserved 2023</p>
-    <p class="neuralnetwork-chatgpt-vosk-yrq">
-      <span class="neuralnetwork-chatgpt-vosk-yrq-sub-0">
-      NeuralNetwork
-      <br/>
-      
-      </span>
-      <span class="neuralnetwork-chatgpt-vosk-yrq-sub-1">ChatGPT + Vosk</span>
-    </p>
-    <p class="ram-03-mb-3ER">
-      <span class="ram-03-mb-3ER-sub-0">RAM</span>
-      <span class="ram-03-mb-3ER-sub-1">
-       
-      <br/>
-      0.3 mb
-      </span>
-    </p>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
 
-    <p class="sofia-Wvd">SofiAI</p>
-    
-  
-  </div>
-  
-</div>
-<div id="commandsList"></div>
-<script type="text/javascript" src="{{ url_for('static', filename='js/app.js') }}"></script>
-</body>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Source+Sans+Pro%3A300%2C400%2C700%2C800"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Stick+No+Bills%3A300%2C800"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Big+Shoulders+Stencil+Text%3A800"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Tourney%3A400%2C800"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inter%3A800"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Jura%3A700"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Handjet%3A800"
+    />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"/>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/app.js') }}"></script>
+
+    <!-- <link rel="stylesheet" href="../static/css/style.css" />
+    <script src="../static/js/app.js"></script> -->
+    <title>SofiAI</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+  </head>
+  <body>
+    <div class="style-SR7">
+      <div class="sofiai-ui-cU1">
+        <div class="rectangle-2-jaZ"></div>
+        <div class="rectangle-1-mXF"></div>
+        <div class="upper-div-qQd"></div>
+        <div class="lower-div-wiZ"></div>
+        <div class="mic-ess"></div>
+        <div class="neuro-93w"></div>
+        <div class="ram-NxH"></div>
+        <button class="sphere-button" onclick="start_stop_recording()">
+          <div class="ellipse-1-DT7">SofiAI</div>
+        </button>
+        <button class="commands-dWq" onclick="commands()">Commands</button>
+
+        <button class="log-7S1" onclick="log()">Log</button>
+        <div class="settings-oJq"></div>
+        <p class="microphone-realtek-audio-Fgd">
+          <span class="microphone-realtek-audio-Fgd-sub-0">Microphone</span>
+          <span
+            class="microphone-realtek-audio-Fgd-sub-1"
+            id="microphoneStatus"
+          >
+            <br />
+            Realtek Audio
+          </span>
+        </p>
+        <p class="author-sa-group-project-sofiai-7uB">
+          <span class="author-sa-group-project-sofiai-7uB-sub-0">
+            Author: S.A Group
+            <br />
+            Project:
+          </span>
+          <span class="author-sa-group-project-sofiai-7uB-sub-1">SofiAI</span>
+        </p>
+        <p class="all-rights-reserved-2023-MaZ">© All rights reserved 2023</p>
+        <p class="neuralnetwork-chatgpt-vosk-yrq">
+          <span class="neuralnetwork-chatgpt-vosk-yrq-sub-0">
+            NeuralNetwork
+            <br />
+          </span>
+          <span class="neuralnetwork-chatgpt-vosk-yrq-sub-1"
+            >ChatGPT + Vosk</span
+          >
+        </p>
+        <p class="ram-03-mb-3ER">
+          <span class="ram-03-mb-3ER-sub-0">RAM</span>
+          <span class="ram-03-mb-3ER-sub-1">
+            <br />
+            0.3 mb
+          </span>
+        </p>
+      </div>
+    </div>
+    <div id="commandsList"></div>
+      </body>
 </html>

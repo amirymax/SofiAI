@@ -1,4 +1,5 @@
 VA_NAME = 'Sofi'
+SAMPLERATE = 16000
 
 VA_ALIAS = ('sofi', 'sonya', 'sofia', 'sofa', 'safia',
             'sofya', 'sophie', 'so fi', 'sophia', 'sonia')
@@ -35,5 +36,4 @@ VA_CMD_LIST = {
     'middle volume': ('set volume to the middle','middle volume'),
     'max volume':('set volume to the max', 'max volume', 'volume to hunread percent'),
     'mute volume':('mute volume', 'mute','volume to the zero')
-
 }
