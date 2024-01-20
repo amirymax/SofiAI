@@ -16,3 +16,12 @@ open log : log
 open log : log
 increases volume : increase volume
 open dialogue : log
+make a note : note
+make a note : note
+ : 
+ : 
+make a note : note
+a joke : joke
+kill a joke : joke
+ : 
+ : 

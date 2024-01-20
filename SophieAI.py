@@ -26,7 +26,6 @@ class SophieAI:
 
         self.vosk_model = vosk.Model(
             "model-small")
-        self.log = open('static/js/log.txt', 'a')
         self.listen_commands = True
 
     def listen(self) -> None:
@@ -63,11 +62,7 @@ class SophieAI:
             for x in config.VA_TBR:
                 cmd = cmd.replace(x, "").strip()
             print(f'CMD: {cmd}')
-            try:
-                self.log.write(cmd + ' : ')
-            except ValueError:
-                self.log = open('static/js/log.txt', 'a')
-                self.log.write(cmd + ' : ')
+            self.log(cmd + ' : ')
             return cmd
         with sd.RawInputStream(samplerate=samplerate, blocksize=8000, device=device, dtype='int16',
                                channels=1, callback=q_callback):
@@ -82,7 +77,7 @@ class SophieAI:
                         # обращаются к ассистенту
                         cmd = recognize_cmd(filter_cmd(voice))
                         print(cmd)
-                        self.log.write(cmd['cmd'] + '\n')
+                        self.log(cmd['cmd'] + '\n')
                         if cmd['cmd'] not in config.VA_CMD_LIST.keys():
                             self.say("What?")
                         else:
@@ -97,7 +92,7 @@ class SophieAI:
                                            put_yo=True)
 
         sd.play(audio, sample_rate * 1.05)
-        time.sleep((len(audio) / sample_rate) + 0.5)
+        time.sleep((len(audio) / sample_rate))
         sd.stop()
     def stop_listening(self):
         self.listen_commands = False
@@ -166,11 +161,9 @@ class SophieAI:
 
         elif cmd == 'log':
             self.say('Processing sir...')
-            self.log.close()
             terminal_output = os.system('start static/js/log.txt')
             if not terminal_output:
                 self.say("Command's log opened successfully")
-                self.log = open('static/js/log.txt', 'a')
             else:
                 self.say('There was an error while processing. Please try again!')
 
@@ -259,6 +252,10 @@ class SophieAI:
         volume_control = cast(interface, POINTER(IAudioEndpointVolume))
         return volume_control
 
+    def log(self, text: str):
+        log_file = open('static/js/log.txt', 'a')
+        log_file.write(text)
+        log_file.close()
 
 if __name__=='__main__':
     

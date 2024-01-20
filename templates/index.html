@@ -2,14 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Source+Sans+Pro%3A300%2C400%2C700%2C800"
-    />
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Stick+No+Bills%3A300%2C800"
@@ -22,10 +15,7 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Tourney%3A400%2C800"
     />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Inter%3A800"
-    />
+
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Jura%3A700"
@@ -34,6 +24,7 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Handjet%3A800"
     />
+    <link rel="icon" href="{{url_for('static', filename='icon.png')}}" type="image/png">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"/>
     <script type="text/javascript" src="{{ url_for('static', filename='js/app.js') }}"></script>
 
@@ -52,7 +43,10 @@
         <div class="mic-ess"></div>
         <div class="neuro-93w"></div>
         <div class="ram-NxH"></div>
-        <button class="sphere-button" onclick="start_stop_recording()">
+        <button
+          class="sphere-button"
+          onclick="start_stop_recording()"
+        >
           <div class="ellipse-1-DT7">SofiAI</div>
         </button>
         <button class="commands-dWq" onclick="commands()">Commands</button>
@@ -97,5 +91,5 @@
       </div>
     </div>
     <div id="commandsList"></div>
-      </body>
+  </body>
 </html>

@@ -31,6 +31,7 @@ body {
   height: 55.4rem;
   overflow: hidden;
   background-color: #221f1f;
+  border-radius: 10px;
 }
 
 .style-SR7 .sofiai-ui-cU1 .rectangle-2-jaZ {
@@ -110,7 +111,7 @@ body {
   height: 2.3794rem;
   position: absolute;
   color: #4c06bc;
-  background-color: #c4c4c4;
+  background-color: #d80000;
   border-radius: 0.6489rem;
   text-align: center;
   font-size: 1.2979rem;
@@ -142,6 +143,32 @@ body {
   border-radius: 0.6489rem;
 }
 
+@keyframes bounce {
+	0%, 20%, 60%, 100% {
+		transform: translateY(0);
+		transform: translateY(0);
+    
+	}
+
+	40% {
+		transform: translateY(-20px);
+		transform: translateY(-20px);
+    
+	}
+
+	80% {
+		transform: translateY(-10px);
+		transform: translateY(-10px);
+    
+	}
+}
+
+.style-SR7 .sofiai-ui-cU1 .log-7S1:hover, .style-SR7 .sofiai-ui-cU1 .commands-dWq:hover {
+  animation: bounce 0.9s;
+}
+
+
+/* Lower div: Author, Group, Project, etc... */
 .style-SR7 .sofiai-ui-cU1 .settings-oJq {
   width: 37.4755rem;
   height: 8.4361rem;
@@ -152,6 +179,7 @@ body {
   border-radius: 1.2438rem;
 }
 
+/* Microphone */
 .style-SR7 .sofiai-ui-cU1 .microphone-realtek-audio-Fgd {
   width: 9.4rem;
   height: 4.4rem;
@@ -237,11 +265,13 @@ body {
 
 @keyframes pulse {
   0% {
-    box-shadow: 0 0 2.5092rem #01f9f1;
+    box-shadow: 0 0 2.5092rem #01f992;
   }
 
   50% {
-    box-shadow: 0 0 5rem #01f9f1;
+    box-shadow: 0 0 5rem #01f992;
+    border: solid 2px #01f992;
+    color: #01f992;
     /* size of the shadow */
   }
 
@@ -257,16 +287,20 @@ body {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  border: solid 0.1082rem #02fff4;
+  border: solid 2px #02fff4;
   box-sizing: border-box;
   background-color: #285554;
   border-radius: 9.7339rem;
-  animation: pulse 2.5s infinite;
-  /* animation duration */
+  box-shadow: 0 0 5rem #01f9f1;
+}
+.style-SR7 .sofiai-ui-cU1 .ellipse-1-DT7:hover{
+  color: rgb(47, 230, 102);
+  border-color: rgb(65, 112, 243);
+  box-shadow: 0 0 5rem rgb(60, 110, 250);
 }
 
-.sphere-button {
-  vertical-align: middle;
+.pulse-animation {
+  animation: pulse 1.5s infinite;
 }
 
 .ellipse-1-DT7 {

@@ -1,9 +1,15 @@
 var record = false;
 
-function start_stop_recording(){
-  console.log('sphere button clicked');
 
+function start_stop_recording(){
+  var ellipse = document.querySelector('.ellipse-1-DT7');
   record = !record;
+  if(ellipse.classList.contains('pulse-animation')){
+    ellipse.classList.remove('pulse-animation');
+  } else {
+    ellipse.classList.add('pulse-animation');
+  }
+  
   if(record){
     fetch("/start_recording", { method: "POST" })
     .then((response) => {
@@ -13,7 +19,7 @@ function start_stop_recording(){
           response.status,
           response.statusText
         );
-      }
+      } 
     })
     .catch((error) => {
       console.error("Error:", error);
