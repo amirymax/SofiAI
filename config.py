@@ -35,5 +35,15 @@ VA_CMD_LIST = {
     'decrease volume': ('decrease volume', 'volume down', 'minus volume'),
     'middle volume': ('set volume to the middle','middle volume'),
     'max volume':('set volume to the max', 'max volume', 'volume to hunread percent'),
-    'mute volume':('mute volume', 'mute','volume to the zero')
+    'mute volume':('mute volume', 'mute','volume to the zero'),
+
+    # PC power
+    'turn off pc' : ('Turn off pc','shut down computer'),
+    'restart pc':('restart pc', 'restart computer'),
+    'sleep':('go to sleep mode', 'sleep'),
+
+    # Sites
+    'youtube': ('open youtube', 'youtube', 'start youtube'),
+    'music':('play some music','yandex music','music')
+    
 }

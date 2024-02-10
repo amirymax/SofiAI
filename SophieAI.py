@@ -12,7 +12,7 @@ from random import choice
 import num2word
 from comtypes import cast, POINTER, CoInitialize, CoUninitialize, CLSCTX_ALL
 from pycaw.pycaw import AudioUtilities, IAudioEndpointVolume
-
+import webbrowser
 
 
 class SophieAI:
@@ -74,7 +74,6 @@ class SophieAI:
                     voice = json.loads(rec.Result())["text"]
                     print(f'Voice: {voice}')
                     if voice.startswith(config.VA_ALIAS):
-                        # обращаются к ассистенту
                         cmd = recognize_cmd(filter_cmd(voice))
                         print(cmd)
                         self.log(cmd['cmd'] + '\n')
@@ -94,8 +93,10 @@ class SophieAI:
         sd.play(audio, sample_rate * 1.05)
         time.sleep((len(audio) / sample_rate))
         sd.stop()
+
     def stop_listening(self):
         self.listen_commands = False
+    
     def execute(self, cmd: str) -> None:
         CoInitialize()
         if cmd == 'help':
@@ -200,6 +201,17 @@ class SophieAI:
         elif cmd == 'mute volume':
             self.mute_volume()
 
+        elif cmd == 'youtube':
+            self.say('Processing sir')
+            self.open_youtube()
+     
+        elif cmd == 'music':
+            self.say('Processing sir')
+            self.open_music()
+    
+        elif cmd == 'turn off':
+            
+            pass
     def increase_volume(self) -> None:
         self.set_volume('+')
 
@@ -214,6 +226,7 @@ class SophieAI:
 
     def mute_volume(self) -> None:
         self.set_volume('mute')
+
 
     def set_volume(self, degree: str) -> None:
         current_volume = self.get_volume()
@@ -252,13 +265,20 @@ class SophieAI:
         volume_control = cast(interface, POINTER(IAudioEndpointVolume))
         return volume_control
 
+    def open_youtube(self):        
+        webbrowser.open('https://youtube.com')
+        self.say('YouTube was opened successfully')
+    
+    def open_music(self):
+        webbrowser.open('music.yandex.com')
+        self.say('Music was opened successfully')
+
     def log(self, text: str):
         log_file = open('static/js/log.txt', 'a')
         log_file.write(text)
         log_file.close()
 
-if __name__=='__main__':
-    
-    model = SophieAI()
+# if __name__=='__main__':    
+#     model = SophieAI()
     # model.say('how are you sir?')
     # model.listen()

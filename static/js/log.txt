@@ -25,3 +25,39 @@ a joke : joke
 kill a joke : joke
  : 
  : 
+make a note : note
+open edge browser : edge
+while can you do : help
+volume to the middle : middle volume
+thank you : thanks
+volume to the max : max volume
+volume to the middle : middle volume
+me a joke : joke
+turn on memory reboot on you tube : max volume
+open edge browser : edge
+thank you : thanks
+open your you tube : youtube
+volume to the max : max volume
+open you tube : youtube
+mute volume : mute volume
+volume to the middle : middle volume
+increased volume : increase volume
+open edge browser : edge
+open you tube : youtube
+thank you : thanks
+way into the middle : middle volume
+ : 
+opens the you tube : youtube
+thank you baby : thanks
+ : 
+thank you : thanks
+ : 
+ : 
+ : 
+ : 
+ : 
+ : 
+open you tube : youtube
+thank you : thanks
+open you tube : youtube
+thank you : thanks
