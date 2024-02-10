@@ -64,3 +64,4 @@ thank you : thanks
 volume to the middle : middle volume
 thank you : thanks
 play some music : music
+me a joke : joke

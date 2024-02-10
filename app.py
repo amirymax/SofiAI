@@ -2,7 +2,7 @@ from flask import Flask, render_template
 from flask_socketio import SocketIO
 from SophieAI import SophieAI
 from comtypes import CoInitialize, CoUninitialize
-
+import webbrowser
 CoInitialize()
 
 app = Flask(__name__)
@@ -32,7 +32,15 @@ def stop_recording():
     model.listen_commands = False
     return 'Listening stopped', 200
 
+
+    
+
+started = False
 if __name__ == '__main__':
-    app.run(debug=True)
+    if not started:
+        webbrowser.open('http://127.0.0.1:5000')
+        started = True
+    app.run()
+
 
 CoUninitialize()
