@@ -1,0 +1,10 @@
+vosk==0.3.45
+sounddevice==0.4.6
+fuzzywuzzy==0.18.0
+pycaw
+torch==2.1.2
+num2word==1.0.1
+comtypes==1.2.0
+flask==3.0.0
+flask_socketio==5.3.6
+

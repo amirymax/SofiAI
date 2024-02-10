@@ -10,7 +10,7 @@ import time
 import os
 from random import choice
 import num2word
-from comtypes import cast, POINTER, CoInitialize, CoUninitialize, CLSCTX_ALL
+from comtypes import cast, POINTER, CoInitialize, CLSCTX_ALL
 from pycaw.pycaw import AudioUtilities, IAudioEndpointVolume
 import webbrowser
 
@@ -209,9 +209,9 @@ class SophieAI:
             self.say('Processing sir')
             self.open_music()
     
-        elif cmd == 'turn off':
+        # elif cmd == 'turn off':
             
-            pass
+        #     pass
     def increase_volume(self) -> None:
         self.set_volume('+')
 

@@ -38,9 +38,9 @@ VA_CMD_LIST = {
     'mute volume':('mute volume', 'mute','volume to the zero'),
 
     # PC power
-    'turn off pc' : ('Turn off pc','shut down computer'),
-    'restart pc':('restart pc', 'restart computer'),
-    'sleep':('go to sleep mode', 'sleep'),
+    # 'turn off pc' : ('Turn off pc','shut down computer'),
+    # 'restart pc':('restart pc', 'restart computer'),
+    # 'sleep':('go to sleep mode', 'sleep'),
 
     # Sites
     'youtube': ('open youtube', 'youtube', 'start youtube'),
