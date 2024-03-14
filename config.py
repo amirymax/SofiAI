@@ -18,7 +18,7 @@ VA_CMD_LIST = {
 
     # browsers
     "chrome": ('open chrome', 'start chrome', 'chrome browser'),
-    "edge": ('open edge', 'edge browser', 'start edge'),
+    "edge": ('open edge', 'edge browser', 'start edge', "open browser"),
 
     # notepad
     'note': ('make a note', 'start notepad'),

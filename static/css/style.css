@@ -144,29 +144,29 @@ body {
 }
 
 @keyframes bounce {
-	0%, 20%, 60%, 100% {
-		transform: translateY(0);
-		transform: translateY(0);
-    
-	}
+  0%,
+  20%,
+  60%,
+  100% {
+    transform: translateY(0);
+    transform: translateY(0);
+  }
 
-	40% {
-		transform: translateY(-20px);
-		transform: translateY(-20px);
-    
-	}
+  40% {
+    transform: translateY(-20px);
+    transform: translateY(-20px);
+  }
 
-	80% {
-		transform: translateY(-10px);
-		transform: translateY(-10px);
-    
-	}
+  80% {
+    transform: translateY(-10px);
+    transform: translateY(-10px);
+  }
 }
 
-.style-SR7 .sofiai-ui-cU1 .log-7S1:hover, .style-SR7 .sofiai-ui-cU1 .commands-dWq:hover {
+.style-SR7 .sofiai-ui-cU1 .log-7S1:hover,
+.style-SR7 .sofiai-ui-cU1 .commands-dWq:hover {
   animation: bounce 0.9s;
 }
-
 
 /* Lower div: Author, Group, Project, etc... */
 .style-SR7 .sofiai-ui-cU1 .settings-oJq {
@@ -293,7 +293,7 @@ body {
   border-radius: 9.7339rem;
   box-shadow: 0 0 5rem #01f9f1;
 }
-.style-SR7 .sofiai-ui-cU1 .ellipse-1-DT7:hover{
+.style-SR7 .sofiai-ui-cU1 .ellipse-1-DT7:hover {
   color: rgb(47, 230, 102);
   border-color: rgb(65, 112, 243);
   box-shadow: 0 0 5rem rgb(60, 110, 250);
@@ -302,7 +302,6 @@ body {
 .pulse-animation {
   animation: pulse 1.5s infinite;
 }
-
 
 .ellipse-1-DT7 {
   font-size: 2.5957rem;
@@ -321,7 +320,7 @@ body {
 
 .ellipse-1-DT7:hover {
   transition-duration: 0.1s;
-  background-color: #3A3A3A;
+  background-color: #3a3a3a;
 }
 
 .ellipse-1-DT7:after {
@@ -330,7 +329,7 @@ body {
   position: absolute;
   border-radius: 4em;
   left: 0;
-  top:0;
+  top: 0;
   width: 100%;
   height: 100%;
   opacity: 0;
@@ -343,7 +342,7 @@ body {
   position: absolute;
   border-radius: 4em;
   left: 0;
-  top:0;
+  top: 0;
   opacity: 1;
   transition: 0s;
 }
@@ -351,7 +350,6 @@ body {
 .ellipse-1-DT7:active {
   top: 1px;
 }
-
 
 #commandsList {
   display: none;

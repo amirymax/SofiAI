@@ -65,3 +65,19 @@ volume to the middle : middle volume
 thank you : thanks
 play some music : music
 me a joke : joke
+volume to the middle : middle volume
+thank you : thanks
+time is it right now : ctime
+make a note : note
+making out : note
+play some music : music
+open you tube : youtube
+mute the volume : mute volume
+volume up : increase volume
+volume up : increase volume
+thank you : thanks
+thank you : thanks
+volume to the middle : middle volume
+open browser : chrome
+open browser : edge
+thank you : thanks
