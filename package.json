@@ -4,7 +4,7 @@
   "description": "Персональный голосовой ассистент.",
   "main": "index.js",
   "scripts": {
-    "lint:js": "eslint **/*.js",
+    "lint:js": "eslint static/js/*.js ./tests/*.js",
     "lint:css": "stylelint **/*.css",
     "lint:html": "prettier --write **/*.html",
     "test": "jest"
