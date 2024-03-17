@@ -64,16 +64,16 @@ document.addEventListener('DOMContentLoaded', function () {
     })
 })
 
-// detect memory using 
-document.addEventListener('DOMContentLoaded', function() {
-  var backend_mb = 500 // ram used by backend (python)
-  var front_mb = 0
+// detect memory using
+document.addEventListener('DOMContentLoaded', function () {
+  const backend_mb = 500 // ram used by backend (python)
+  let front_mb = 0
   if (window.performance && window.performance.memory) {
-    var memoryUsage = window.performance.memory;
-    front_mb = memoryUsage.usedJSHeapSize / (1024 * 1024);
+    const memoryUsage = window.performance.memory
+    front_mb = memoryUsage.usedJSHeapSize / (1024 * 1024)
   }
   const ramUsing = document.getElementById('ramUsing')
-  ramUsing.innerText = '0.' + Math.floor((backend_mb + front_mb) / 100) + " gb"
+  ramUsing.innerText = '0.' + Math.floor((backend_mb + front_mb) / 100) + ' gb'
 })
 
 // Log button function
@@ -113,4 +113,3 @@ function commands () {
   commandsListContainer.style.display = commandsListVisible ? 'block' : 'none'
   commandsListContainer.style.display = commandsListVisible ? 'block' : 'none'
 }
-
