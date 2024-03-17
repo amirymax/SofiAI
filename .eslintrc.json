@@ -7,7 +7,7 @@
     "parserOptions": {
       "ecmaVersion": "latest"
     },
-    "ignorePatterns": ["./node_modules/*.js"],
+    "ignorePatterns": ["node_modules/"],
     "rules": {
       "operator-linebreak": ["error", "none"],
       "n/handle-callback-err": "off",
