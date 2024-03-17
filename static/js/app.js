@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function () {
     })
 })
 
-function handleMicrophone() {
+function handleMicrophone () {
   // Get the element that will display the microphone status
   const microphoneStatusElement = document.getElementById('microphoneStatus')
 
@@ -55,7 +55,6 @@ function handleMicrophone() {
     .then(function (stream) {
       // Microphone is available
       microphoneStatusElement.innerText = 'Connected'
-      
     })
     .catch(function (error) {
       // Microphone is not available
@@ -63,7 +62,7 @@ function handleMicrophone() {
     })
 }
 
-function handleRAM() {
+function handleRAM () {
   const backend_mb = 500 // ram used by backend (python)
   let front_mb = 0
   if (window.performance && window.performance.memory) {
@@ -72,13 +71,10 @@ function handleRAM() {
   }
   const ramUsing = document.getElementById('ramUsing')
   ramUsing.innerText = '0.' + Math.floor((backend_mb + front_mb) / 100) + ' gb'
-
 }
-
 
 // Connected or Not connected microphone
 document.addEventListener('DOMContentLoaded', handleMicrophone)
-
 
 // detect memory using
 document.addEventListener('DOMContentLoaded', handleRAM)
@@ -126,12 +122,11 @@ function commands () {
   commandsListContainer.style.display = commandsListVisible ? 'block' : 'none'
 }
 
-
 // экспорт для тестов
-module.exports = { 
-  start_stop_recording, 
+module.exports = {
+  start_stop_recording,
   log,
-  commands, 
-  handleMicrophone, 
+  commands,
+  handleMicrophone,
   handleRAM
- };
+}

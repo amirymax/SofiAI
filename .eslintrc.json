@@ -11,7 +11,8 @@
       "operator-linebreak": ["error", "none"],
       "n/handle-callback-err": "off",
       "no-unused-vars": "off",
-      "camelcase": "off" 
+      "camelcase": "off" ,
+      "no-undef": "off"
     }
   }
   
