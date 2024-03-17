@@ -4,12 +4,17 @@
   "description": "Персональный голосовой ассистент.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint:js": "eslint **/*.js",
+    "lint:css": "stylelint **/*.css",
+    "lint:html": "prettier --write **/*.html"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "eslint": "^8.57.0",
-    "eslint-config-google": "^0.14.0"
+    "eslint-config-standard": "^17.1.0",
+    "prettier": "3.2.5",
+    "stylelint": "^16.2.1",
+    "stylelint-config-standard": "^36.0.0"
   }
 }

@@ -1,17 +1,17 @@
 {
     "env": {
-        "browser": true,
-        "es2021": true
+      "browser": true,
+      "es2021": true
     },
-    "extends": "google",
+    "extends": "eslint-config-standard",
     "parserOptions": {
-        "ecmaVersion": "latest"
+      "ecmaVersion": "latest"
     },
     "rules": {
-        "no-var": "off",
-        "require-jsdoc": "off",
-        "camelcase": "off",
-        "no-unused-vars": "off",
-        "max-len": ["error", {"code": 150}]
+      "operator-linebreak": ["error", "none"],
+      "n/handle-callback-err": "off",
+      "no-unused-vars": "off",
+      "camelcase": "off" 
     }
-}
+  }
+  

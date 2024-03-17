@@ -81,3 +81,6 @@ volume to the middle : middle volume
 open browser : chrome
 open browser : edge
 thank you : thanks
+volume to the middle : middle volume
+open you tube : youtube
+thank you baby : thanks

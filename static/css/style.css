@@ -7,15 +7,6 @@ html {
   padding: 0;
 }
 
-ul,
-li {
-  list-style: none;
-}
-
-input {
-  border: none;
-}
-
 body {
   width: 37.8rem;
   background-color: #00040adc;
@@ -26,7 +17,6 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-
   width: 37.8rem;
   height: 55.4rem;
   overflow: hidden;
@@ -34,13 +24,14 @@ body {
   border-radius: 10px;
 }
 
+
 .style-SR7 .sofiai-ui-cU1 .rectangle-2-jaZ {
   width: 37.8rem;
   height: 39.0438rem;
   position: absolute;
   left: 0;
   top: 8.4901rem;
-  background-color: #ffffff;
+  background-color: #fff;
 }
 
 /* Main background */
@@ -50,7 +41,6 @@ body {
   position: absolute;
   left: 0.3785rem;
   top: 8.5983rem;
-  /* background: radial-gradient(54.13% 54.13% at 48.1% 45.87%, #14b2a9 0%, #000000 100%); */
   background-color: #221f1f;
   border-radius: 1.2438rem;
 }
@@ -62,7 +52,7 @@ body {
   position: absolute;
   left: 0;
   top: 0;
-  background-color: #ffffff;
+  background-color: #fff;
 }
 
 /* Lower white div */
@@ -72,19 +62,21 @@ body {
   position: absolute;
   left: 0;
   top: 46.6146rem;
-  background-color: #ffffff;
+  background-color: #fff;
 }
 
+/* microphone background */
 .style-SR7 .sofiai-ui-cU1 .mic-ess {
   width: 12.2755rem;
   height: 8.3279rem;
   position: absolute;
   left: 0.1622rem;
   top: 0.1622rem;
-  background-color: #000000;
+  background-color: #000;
   border-radius: 1.2438rem;
 }
 
+/* neuralnetwork background */
 .style-SR7 .sofiai-ui-cU1 .neuro-93w {
   width: 12.2755rem;
   height: 8.3279rem;
@@ -95,16 +87,18 @@ body {
   border-radius: 1.2438rem;
 }
 
+/* ram background */
 .style-SR7 .sofiai-ui-cU1 .ram-NxH {
   width: 12.2755rem;
   height: 8.3279rem;
   position: absolute;
   left: 25.3622rem;
   top: 0.1622rem;
-  background-color: #000000;
+  background-color: #000;
   border-radius: 1.2438rem;
 }
 
+/* commands and log text style */
 .style-SR7 .sofiai-ui-cU1 .commands-dWq,
 .style-SR7 .sofiai-ui-cU1 .log-7S1 {
   width: 8.5983rem;
@@ -117,12 +111,13 @@ body {
   font-size: 1.2979rem;
   font-weight: bold;
   line-height: 1.1825;
-  font-family: Jura, "Source Sans Pro";
+  font-family: Jura, "Source Sans Pro", sans-serif;
   white-space: nowrap;
   cursor: pointer;
   border: none;
 }
 
+/* commands button style */
 .style-SR7 .sofiai-ui-cU1 .commands-dWq {
   width: 8.5983rem;
   height: 2.3794rem;
@@ -132,6 +127,8 @@ body {
   background-color: #c4c4c4;
   border-radius: 0.6489rem;
 }
+
+/* log button style */
 
 .style-SR7 .sofiai-ui-cU1 .log-7S1 {
   width: 8.5983rem;
@@ -149,16 +146,13 @@ body {
   60%,
   100% {
     transform: translateY(0);
-    transform: translateY(0);
   }
 
   40% {
     transform: translateY(-20px);
-    transform: translateY(-20px);
   }
 
   80% {
-    transform: translateY(-10px);
     transform: translateY(-10px);
   }
 }
@@ -175,7 +169,7 @@ body {
   position: absolute;
   left: 0.1622rem;
   top: 46.7768rem;
-  background-color: #000000;
+  background-color: #000;
   border-radius: 1.2438rem;
 }
 
@@ -189,11 +183,12 @@ body {
   text-align: center;
   font-size: 1.7305rem;
   font-weight: 800;
-  line-height: 1.1176470005;
+  line-height: 1.1176;
   color: #01f5f1;
-  font-family: Handjet, "Source Sans Pro";
+  font-family: Handjet, "Source Sans Pro", sans-serif;
 }
 
+/* microphone text */
 .style-SR7
   .sofiai-ui-cU1
   .microphone-realtek-audio-Fgd
@@ -202,8 +197,10 @@ body {
   font-weight: 300;
   line-height: 1.2525;
   color: #01f5f1;
-  font-family: Stick No Bills, "Source Sans Pro";
+  font-family: "Stick No Bills", "Source Sans Pro", sans-serif;
 }
+
+/* author text */
 
 .style-SR7 .sofiai-ui-cU1 .author-sa-group-project-sofiai-7uB {
   width: 18.1rem;
@@ -217,9 +214,10 @@ body {
   line-height: 1.1975;
   letter-spacing: 0.2725rem;
   color: #01f5f1;
-  font-family: Big Shoulders Stencil Text, "Source Sans Pro";
+  font-family: "Big Shoulders Stencil Text", "Source Sans Pro", sans-serif;
 }
 
+/* all rights reserved */
 .style-SR7 .sofiai-ui-cU1 .all-rights-reserved-2023-MaZ {
   width: 10.7rem;
   height: 1rem;
@@ -230,11 +228,12 @@ body {
   font-size: 10px;
   font-weight: 800;
   line-height: 1.2125;
-  color: #ffffff;
-  font-family: Inter, "Source Sans Pro";
+  color: #fff;
+  font-family: Inter, "Source Sans Pro", sans-serif;
   white-space: nowrap;
 }
 
+/* neural network text */
 .style-SR7 .sofiai-ui-cU1 .neuralnetwork-chatgpt-vosk-yrq {
   width: 10.4rem;
   height: 4.4rem;
@@ -246,9 +245,10 @@ body {
   font-weight: 800;
   line-height: 1.2525;
   color: #01f5f1;
-  font-family: Stick No Bills, "Source Sans Pro";
+  font-family: "Stick No Bills", "Source Sans Pro", sans-serif;
 }
 
+/* ram and size text */
 .style-SR7 .sofiai-ui-cU1 .ram-03-mb-3ER {
   width: 4.4rem;
   height: 4.1rem;
@@ -260,7 +260,7 @@ body {
   font-weight: 800;
   line-height: 1.2525;
   color: #01f5f1;
-  font-family: Stick No Bills, "Source Sans Pro";
+  font-family: "Stick No Bills", "Source Sans Pro", sans-serif;
 }
 
 @keyframes pulse {
@@ -272,12 +272,33 @@ body {
     box-shadow: 0 0 5rem #01f992;
     border: solid 2px #01f992;
     color: #01f992;
+
     /* size of the shadow */
   }
 
   100% {
     box-shadow: 0 0 2.5092rem #01f9f1;
   }
+}
+
+
+.ellipse-1-DT7 {
+  font-size: 2.5957rem;
+  font-weight: 400;
+  color: #fff;
+  font-family: Tourney, "Source Sans Pro", sans-serif;
+  white-space: nowrap;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 190px;
+  cursor: pointer;
+  transition-duration: 0.4s;
+}
+
+
+.ellipse-1-DT7:hover {
+  transition-duration: 0.1s;
+  background-color: #3a3a3a;
 }
 
 .style-SR7 .sofiai-ui-cU1 .ellipse-1-DT7 {
@@ -293,37 +314,18 @@ body {
   border-radius: 9.7339rem;
   box-shadow: 0 0 5rem #01f9f1;
 }
+
 .style-SR7 .sofiai-ui-cU1 .ellipse-1-DT7:hover {
-  color: rgb(47, 230, 102);
-  border-color: rgb(65, 112, 243);
-  box-shadow: 0 0 5rem rgb(60, 110, 250);
+  color: rgb(47 230 102);
+  border-color: rgb(65 112 243);
+  box-shadow: 0 0 5rem rgb(60 110 250);
 }
 
 .pulse-animation {
   animation: pulse 1.5s infinite;
 }
 
-.ellipse-1-DT7 {
-  font-size: 2.5957rem;
-  font-weight: 400;
-  line-height: 1.1;
-  color: #ffffff;
-  font-family: Tourney, "Source Sans Pro";
-  white-space: nowrap;
-  text-align: center;
-  vertical-align: middle;
-  line-height: 190px;
-  cursor: pointer;
-  transition-duration: 0.4s;
-  -webkit-transition-duration: 0.4s;
-}
-
-.ellipse-1-DT7:hover {
-  transition-duration: 0.1s;
-  background-color: #3a3a3a;
-}
-
-.ellipse-1-DT7:after {
+.ellipse-1-DT7::after {
   content: "";
   display: block;
   position: absolute;
@@ -337,7 +339,7 @@ body {
   box-shadow: 0 0 10px 40px white;
 }
 
-.ellipse-1-DT7:active:after {
+.ellipse-1-DT7:active::after {
   box-shadow: 0 0 0 0 white;
   position: absolute;
   border-radius: 4em;
@@ -345,10 +347,6 @@ body {
   top: 0;
   opacity: 1;
   transition: 0s;
-}
-
-.ellipse-1-DT7:active {
-  top: 1px;
 }
 
 #commandsList {
