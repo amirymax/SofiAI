@@ -1,4 +1,4 @@
-name: ESLint
+name: SofiAI Tests
 
 on: push
 
@@ -20,3 +20,6 @@ jobs:
       
       - name: Lint HTML
         run: npm run lint:html
+      
+      - name: Unit tests on JEST for javascript
+        run: npm test

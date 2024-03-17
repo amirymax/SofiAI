@@ -28,7 +28,6 @@ function start_stop_recording () {
     fetch('/stop_recording', { method: 'POST' })
   }
 }
-
 document.addEventListener('DOMContentLoaded', function () {
   // Send a request to the Python backend to start recording
   fetch('/loaded', { method: 'POST' })
@@ -46,8 +45,7 @@ document.addEventListener('DOMContentLoaded', function () {
     })
 })
 
-// Connected or Not connected microphone
-document.addEventListener('DOMContentLoaded', function () {
+function handleMicrophone() {
   // Get the element that will display the microphone status
   const microphoneStatusElement = document.getElementById('microphoneStatus')
 
@@ -57,15 +55,15 @@ document.addEventListener('DOMContentLoaded', function () {
     .then(function (stream) {
       // Microphone is available
       microphoneStatusElement.innerText = 'Connected'
+      
     })
     .catch(function (error) {
       // Microphone is not available
       microphoneStatusElement.innerText = 'Not Connected'
     })
-})
+}
 
-// detect memory using
-document.addEventListener('DOMContentLoaded', function () {
+function handleRAM() {
   const backend_mb = 500 // ram used by backend (python)
   let front_mb = 0
   if (window.performance && window.performance.memory) {
@@ -74,7 +72,16 @@ document.addEventListener('DOMContentLoaded', function () {
   }
   const ramUsing = document.getElementById('ramUsing')
   ramUsing.innerText = '0.' + Math.floor((backend_mb + front_mb) / 100) + ' gb'
-})
+
+}
+
+
+// Connected or Not connected microphone
+document.addEventListener('DOMContentLoaded', handleMicrophone)
+
+
+// detect memory using
+document.addEventListener('DOMContentLoaded', handleRAM)
 
 // Log button function
 function log () {
@@ -91,9 +98,14 @@ function commands () {
     { command: 'Sophie, Sonya', description: 'Activate assistant' },
     { command: 'Help', description: 'Get to know about commands' },
     { command: 'Tell a joke', description: 'Tells you a joke' },
-    { command: 'Open chrome (edge)', description: 'Opens the browser' },
+    { command: 'Open chrome (or edge)', description: 'Opens the browser' },
     { command: 'Make a note', description: 'Opens notepad to make a note' },
-    { command: 'Open log', description: 'Take a look at your log' }
+    { command: 'YouTube', description: 'Opens YouTube on browser' },
+    { command: 'Time now', description: 'Tells the time' },
+    { command: 'Music', description: 'Opens Yandex Music on browser' },
+    { command: 'Mute Volume', description: 'Sets volume to 0%' },
+    { command: 'Max Volume', description: 'Sets volume to 100%' },
+    { command: 'Middle Volume', description: 'Sets volume to 50%' }
   ]
 
   commandsListContainer.innerHTML = ''
@@ -113,3 +125,13 @@ function commands () {
   commandsListContainer.style.display = commandsListVisible ? 'block' : 'none'
   commandsListContainer.style.display = commandsListVisible ? 'block' : 'none'
 }
+
+
+// экспорт для тестов
+module.exports = { 
+  start_stop_recording, 
+  log,
+  commands, 
+  handleMicrophone, 
+  handleRAM
+ };
