@@ -21,7 +21,7 @@ jobs:
       - name: Lint HTML
         run: npm run lint:html
         
-  test:
+  unit-tests:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -32,3 +32,15 @@ jobs:
 
       - name: Run tests
         run: npm test
+  e2e-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run Cypress tests
+        run: npm run test:cypress
