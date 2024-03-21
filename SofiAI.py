@@ -15,7 +15,7 @@ from pycaw.pycaw import AudioUtilities, IAudioEndpointVolume
 import webbrowser
 
 
-class SophieAI:
+class SofiAI:
     def __init__(self) -> None:
 
         self.torch_model, _ = torch.hub.load(repo_or_dir='snakers4/silero-models',

@@ -1,13 +1,13 @@
 from flask import Flask, render_template
 from flask_socketio import SocketIO
-from SophieAI import SophieAI
+from SofiAI import SofiAI
 from comtypes import CoInitialize, CoUninitialize
 import webbrowser
 CoInitialize()
 
 app = Flask(__name__)
 socketio = SocketIO(app, cors_allowed_origins='*')
-model = SophieAI()
+model = SofiAI()
 
 
 @app.route('/')
@@ -17,7 +17,7 @@ def home():
 
 @app.route('/loaded', methods=['POST'])
 def loaded():
-    model.say('Welcome sir')
+    # model.say('Welcome sir')
     return "Page loaded successfully"
 
 

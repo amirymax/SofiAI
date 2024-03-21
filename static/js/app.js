@@ -12,7 +12,7 @@ function start_stop_recording () {
 
   if (record) {
     fetch('/start_recording', { method: 'POST' })
-      .then((response) => {
+      .then(response => {
         if (!response.ok) {
           console.error(
             'Failed to start recording:',
@@ -21,7 +21,7 @@ function start_stop_recording () {
           )
         }
       })
-      .catch((error) => {
+      .catch(error => {
         console.error('Error:', error)
       })
   } else {
@@ -31,7 +31,7 @@ function start_stop_recording () {
 document.addEventListener('DOMContentLoaded', function () {
   // Send a request to the Python backend to start recording
   fetch('/loaded', { method: 'POST' })
-    .then((response) => {
+    .then(response => {
       if (!response.ok) {
         console.error(
           'Failed to start recording:',
@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function () {
         )
       }
     })
-    .catch((error) => {
+    .catch(error => {
       console.error('Error:', error)
     })
 })
@@ -123,10 +123,12 @@ function commands () {
 }
 
 // экспорт для тестов
-module.exports = {
-  start_stop_recording,
-  log,
-  commands,
-  handleMicrophone,
-  handleRAM
+if (typeof module === 'object') {
+  module.exports = {
+    start_stop_recording,
+    log,
+    commands,
+    handleMicrophone,
+    handleRAM
+  }
 }
