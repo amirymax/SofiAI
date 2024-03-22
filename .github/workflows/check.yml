@@ -33,42 +33,31 @@ jobs:
       - name: Run tests
         run: npm test
 
-  flask-and-e2e:
+  start-flask:
     runs-on: windows-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-
+        
       - name: Install Python dependencies
         run: pip install -r requirements.txt
       
-      - name: OmegaConf
-        run: pip install omegaconf
-
       - name: Start Flask Server
-        run: |
-          python app.py &
-          sleep(10)
-          echo "Flask server started"
-      - name: Check Flask server availability
-        run: |
-          for ($i=1; $i -le 10; $i++) {
-            Start-Sleep -Seconds 5
-            $response = Invoke-WebRequest -Uri "http://localhost:5000" -Method Get -UseBasicParsing
-            if ($response.StatusCode -eq 200) {
-              Write-Output "Flask server is running and available."
-              exit 0
-            }
-          }
-          Write-Output "Flask server is not running or not available."
-          exit 1
+        run: python app.py & sleep 10
+        background: true
 
-      - name: Install dependencies
+  e2e-tests:
+    needs: start-flask
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Install Node dependencies
         run: npm install
-
+      
       - name: Run Cypress tests
-        run: |
-          npm run test:cypress
+        run: npm run test:cypress
 
 
       
