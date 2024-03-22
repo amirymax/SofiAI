@@ -44,7 +44,6 @@ jobs:
       
       - name: Start Flask Server
         run: python app.py & sleep 10
-        background: true
 
   e2e-tests:
     needs: start-flask
