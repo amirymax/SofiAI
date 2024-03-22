@@ -52,16 +52,16 @@ jobs:
           echo "Flask server started"
       - name: Check Flask server availability
         run: |
-          for /l %i in (1,1,10) do (
-            timeout /t 5 > nul
-            curl -Is http://localhost:5000 | find "HTTP/1.1 200 OK" > nul
-            if not errorlevel 1 (
-              echo "Flask server is running and available."
-              exit /b 0
-            )
-          )
-          echo "Flask server is not running or not available."
-          exit /b 1
+          for ($i=1; $i -le 10; $i++) {
+            Start-Sleep -Seconds 5
+            $response = Invoke-WebRequest -Uri "http://localhost:5000" -Method Get -UseBasicParsing
+            if ($response.StatusCode -eq 200) {
+              Write-Output "Flask server is running and available."
+              exit 0
+            }
+          }
+          Write-Output "Flask server is not running or not available."
+          exit 1
 
       - name: Install dependencies
         run: npm install
