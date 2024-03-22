@@ -44,7 +44,7 @@ jobs:
       
       - name: Start Flask Server
         run: |
-          python app.py > flask_port.txt & echo $! > flask_pid.txt
+          python app.py
           sleep 10
           echo "Flask server started"
 
@@ -55,15 +55,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Install Node dependencies
-        run: npm install
-      
-      - name: Read Flask Port
-        run: |
-          PORT=$(<flask_port.txt)
-          echo "Flask server is running on port $PORT"
+      - name: Cypress
+        uses: cypress-io/github-action@v2
 
       - name: Run Cypress tests
         run: |
-          export PORT
           npm run test:cypress
