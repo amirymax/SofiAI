@@ -58,9 +58,7 @@ jobs:
         run: |
           python app.py &
           sleep 10
-          PORT=$(lsof -ti:5000) || true
-          echo "Flask server running on port $PORT"
-          echo "::set-env name=FLASK_PORT::$PORT"
+          echo "Flask server started"
 
       - name: Get Flask Server Port
         id: get-flask-port
