@@ -33,7 +33,7 @@ jobs:
       - name: Run tests
         run: npm test
 
-  start-flask:
+  flask-and-e2e:
     runs-on: windows-latest
     steps:
       - name: Checkout repository
@@ -49,16 +49,13 @@ jobs:
         run: |
           python app.py
           echo "Flask server started"
-
-  e2e-tests:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
+      
       - name: Install dependencies
         run: npm install
 
       - name: Run Cypress tests
         run: |
           npm run test:cypress
+
+
+      
