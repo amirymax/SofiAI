@@ -56,8 +56,8 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Cypress
-        uses: cypress-io/github-action@v2
+      - name: Install dependencies
+        run: npm install
 
       - name: Run Cypress tests
         run: |
