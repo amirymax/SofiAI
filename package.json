@@ -9,7 +9,7 @@
     "lint:css": "stylelint **/*.css",
     "lint:html": "prettier --write **/*.html",
     "test": "jest",
-    "test:cypress": "cypress open"
+    "test:cypress": "cypress run"
   },
   "author": "",
   "license": "ISC",
