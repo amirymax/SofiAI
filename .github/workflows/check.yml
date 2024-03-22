@@ -36,6 +36,9 @@ jobs:
   start-flask:
     runs-on: windows-latest
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        
       - name: Install Python dependencies
         run: pip install -r requirements.txt
       
