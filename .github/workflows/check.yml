@@ -50,7 +50,19 @@ jobs:
           python app.py &
           sleep(10)
           echo "Flask server started"
-      
+      - name: Check Flask server availability
+        run: |
+          for /l %i in (1,1,10) do (
+            timeout /t 5 > nul
+            curl -Is http://localhost:5000 | find "HTTP/1.1 200 OK" > nul
+            if not errorlevel 1 (
+              echo "Flask server is running and available."
+              exit /b 0
+            )
+          )
+          echo "Flask server is not running or not available."
+          exit /b 1
+
       - name: Install dependencies
         run: npm install
 
