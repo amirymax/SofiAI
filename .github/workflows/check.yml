@@ -62,5 +62,11 @@ jobs:
           echo "Flask server running on port $PORT"
           echo "::set-env name=FLASK_PORT::$PORT"
 
+      - name: Get Flask Server Port
+        id: get-flask-port
+        run: |
+          echo "::set-output name=port::$(python -c 'import re; f = open("app.py", "r"); contents = f.read(); f.close(); print(re.search(r"app.run\(.*port=([0-9]+).*\)", contents).group(1))')"
+
       - name: Run Cypress tests
-        run: PORT=$FLASK_PORT npm run test:cypress
+        run: |
+          PORT=${{ steps.get-flask-port.outputs.port }} npm run test:cypress
