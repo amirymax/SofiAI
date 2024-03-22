@@ -54,12 +54,8 @@ jobs:
       - name: Install Python dependencies
         run: pip install -r requirements.txt
       
-      - name: Run Flask application
-        env:
-          PORT: ${{ github.event.client_port }}
-        run: |
-          export FLASK_APP=app.py
-          flask run --host=0.0.0.0 --port=$PORT
+      - name: Start Flask Server
+        run: python app.py & sleep 10
 
       - name: Run Cypress tests
         run: npm run test:cypress
