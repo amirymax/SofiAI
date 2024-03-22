@@ -32,8 +32,21 @@ jobs:
 
       - name: Run tests
         run: npm test
-  e2e-tests:
+
+  start-flask:
     runs-on: windows-latest
+      
+      - name: Install Python dependencies
+        run: pip install -r requirements.txt
+      
+      - name: Start Flask Server
+        run: |
+          python app.py > flask_port.txt & echo $! > flask_pid.txt
+          sleep 10
+          echo "Flask server started"
+
+  e2e-tests:
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
@@ -42,29 +55,12 @@ jobs:
       - name: Install Node dependencies
         run: npm install
       
-      - name: Cache Python dependencies
-        uses: actions/cache@v2
-        with:
-          path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
-          restore-keys: |
-            ${{ runner.os }}-pip-
-
-      
-      - name: Install Python dependencies
-        run: pip install -r requirements.txt
-      
-      - name: Start Flask Server
+      - name: Read Flask Port
         run: |
-          python app.py &
-          sleep 10
-          echo "Flask server started"
-
-      - name: Get Flask Server Port
-        id: get-flask-port
-        run: |
-          echo "::set-output name=port::$(python -c 'import re; f = open("app.py", "r"); contents = f.read(); f.close(); print(re.search(r"app.run\(.*port=([0-9]+).*\)", contents).group(1))')"
+          PORT=$(<flask_port.txt)
+          echo "Flask server is running on port $PORT"
 
       - name: Run Cypress tests
         run: |
-          PORT=${{ steps.get-flask-port.outputs.port }} npm run test:cypress
+          export PORT
+          npm run test:cypress
