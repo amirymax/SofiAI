@@ -2,6 +2,7 @@
   "name": "sophieai",
   "version": "1.0.0",
   "description": "Персональный голосовой ассистент.",
+  "private": true,
   "main": "index.js",
   "scripts": {
     "lint:js": "eslint static/js/*.js ./tests/*.js",
