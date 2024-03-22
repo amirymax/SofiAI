@@ -55,7 +55,12 @@ jobs:
         run: pip install -r requirements.txt
       
       - name: Start Flask Server
-        run: python app.py & sleep 10
+        run: |
+          python app.py &
+          sleep 10
+          PORT=$(lsof -ti:5000) || true
+          echo "Flask server running on port $PORT"
+          echo "::set-env name=FLASK_PORT::$PORT"
 
       - name: Run Cypress tests
-        run: npm run test:cypress
+        run: PORT=$FLASK_PORT npm run test:cypress
