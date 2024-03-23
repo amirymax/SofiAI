@@ -13,7 +13,7 @@
 - flask==3.0.0
 - flask_socketio==5.3.6
 ```
-### [А как установить пакеты ??](https://note.nkmk.me/en/python-pip-install-requirements/) 
+### [А как установить библиотеки ??](https://note.nkmk.me/en/python-pip-install-requirements/) 
 
 ### Инструкция по использованию *Ассистента*
 Запустите файл `app.py`, и после этого на локальном сервере (`127.0.0.1:5000`) начнет работать приложение.
