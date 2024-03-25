@@ -24,7 +24,6 @@ body {
   border-radius: 10px;
 }
 
-
 .style-SR7 .sofiai-ui-cU1 .rectangle-2-jaZ {
   width: 37.8rem;
   height: 39.0438rem;
@@ -107,6 +106,7 @@ body {
   color: #4c06bc;
   background-color: #d80000;
   border-radius: 0.6489rem;
+
   text-align: center;
   font-size: 1.2979rem;
   font-weight: bold;
@@ -281,7 +281,6 @@ body {
   }
 }
 
-
 .ellipse-1-DT7 {
   font-size: 2.5957rem;
   font-weight: 400;
@@ -294,7 +293,6 @@ body {
   cursor: pointer;
   transition-duration: 0.4s;
 }
-
 
 .ellipse-1-DT7:hover {
   transition-duration: 0.1s;
@@ -375,4 +373,101 @@ body {
 
 #commandsList :hover {
   background-color: #3c3939;
+}
+
+.request {
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translate(-50%, -60%);
+}
+
+input {
+  width: 27.5rem;
+  height: 2.4rem;
+  color: white;
+  background-color: #221f1f;
+  border: 3px solid white;
+  border-radius: 10px;
+  padding-left: 10px;
+  font-family: Jura, "Source Sans Pro", sans-serif;
+  font-size: 14px;
+  
+}
+
+#send {
+  width: 8.5983rem;
+  height: 2.6rem;
+  color: #4c06bc;
+  background-color: #d4d3d3;
+  border-radius: 0.6489rem;
+  line-height: 1.1825;
+  font-family: Jura, "Source Sans Pro", sans-serif;
+  white-space: nowrap;
+  cursor: pointer;
+  border: none;
+}
+#send:hover{
+  color: #d4d3d3;
+  background-color: #4c06bc;
+}
+#requests {
+  color: white;
+  background-color: #221f1f;
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  transform: translate(-5%, -5%);
+  border: 3px solid #01f5f1;
+  border-radius: 10px;
+  padding: 10px;
+  width: 350px;
+}
+#requests ul {
+  list-style: none;
+}
+#requests p {
+  font-family: Jura, "Source Sans Pro", sans-serif;
+  font-size: 16px;
+  padding: 5px;
+  text-align: center;
+  
+}
+#requests li:not(:last-child){
+  margin-bottom: 10px;
+}
+
+#requests li:nth-child(odd){
+  background-color: #393535;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+/* Стили для кнопок */
+.thumbUp, .thumbDown {
+  font-size: 20px; 
+  margin-left: 20px; 
+  vertical-align: middle; 
+  background: none;
+  border: none;
+  color: rgb(255, 187, 0);
+}
+
+.thumbUp:hover, .thumbDown:hover{
+  cursor: pointer;
+  color: #01f5f1;
+}
+
+td {
+  font-size: 14px; 
+  padding: 10px; 
+  max-width: 350px; 
+  word-wrap: break-word; 
+  font-family: Jura, "Source Sans Pro", sans-serif;
+}
+
+tr:nth-child(odd){
+  background-color: #393535;
 }

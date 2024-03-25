@@ -3,6 +3,9 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- <link rel="stylesheet" href="../static/css/style.css">
+    <script src="../static/js/app.js"></script> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Stick+No+Bills%3A300%2C800"
@@ -37,13 +40,21 @@
       type="text/javascript"
       src="{{ url_for('static', filename='js/app.js') }}"
     ></script>
-
-    <!-- <link rel="stylesheet" href="../static/css/style.css" />
-    <script src="../static/js/app.js"></script> -->
     <title>SofiAI</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
   </head>
   <body>
+    <div id="requests">
+      <p>Requests will appear be here</p>
+      <table id="requests-table">
+        <tbody id="requests-list">
+        </tbody>
+      </table>
+    </div>
+    <div class="request">
+      <input type="text" id="text" placeholder="type your request" onkeydown="handleKeyPress(event)" disabled/>
+      <button id="send" onclick="send()">Send</button>
+    </div>
     <div class="style-SR7">
       <div class="sofiai-ui-cU1">
         <div class="rectangle-2-jaZ"></div>
@@ -96,5 +107,6 @@
       </div>
     </div>
     <div id="commandsList"></div>
+    
   </body>
 </html>

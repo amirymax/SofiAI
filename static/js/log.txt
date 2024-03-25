@@ -86,3 +86,27 @@ open you tube : youtube
 thank you baby : thanks
 thank you : thanks
 thank you : thanks
+open you tube : youtube
+play some music : music
+open music : music
+volume to the middle : middle volume
+mute volume : mute volume
+open youtube : youtube
+open youtube : youtube
+play some music : music
+play some music : music
+mute volume : mute volume
+play some music for me : music
+open youtube babe : youtube
+set volume to the middle : middle volume
+thank you babe : thanks
+decrease volume : decrease volume
+thank you : thanks
+mute volume : mute volume
+volume to the middle : middle volume
+open youtube babe : youtube
+play some music : music
+decrease volume please : decrease volume
+play music babe : music
+play some music babe : music
+open youtube for m e : youtube

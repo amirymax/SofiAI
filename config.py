@@ -44,6 +44,9 @@ VA_CMD_LIST = {
 
     # Sites
     'youtube': ('open youtube', 'youtube', 'start youtube'),
-    'music':('play some music','yandex music','music')
+    'music':('play some music','yandex music','music'),
+
+    # ALERT 
+    'alert': ('show alert', 'pop alert')
     
 }

@@ -28,43 +28,19 @@ class SofiAI:
             "model-small")
         self.listen_commands = True
 
-    def listen(self) -> None:
+    def listen(self, request) -> None:
         self.listen_commands = True
-        
+
         self.say('I am listening to you sir. What did you want?')
         q = queue.Queue()
         samplerate = 16000
-        device = 1
 
         def q_callback(indata, frames, time, status):
             if status:
                 print(status, file=sys.stderr)
             q.put(bytes(indata))
 
-        def recognize_cmd(cmd: str):
-            rc = {'cmd': '', 'percent': 0}
-            for c, v in config.VA_CMD_LIST.items():
-
-                for x in v:
-                    vrt = fuzz.ratio(cmd, x)
-                    if vrt > rc['percent']:
-                        rc['cmd'] = c
-                        rc['percent'] = vrt
-
-            return rc
-
-        def filter_cmd(raw_voice: str):
-            cmd = raw_voice
-
-            for x in config.VA_ALIAS:
-                cmd = cmd.replace(x, "").strip()
-
-            for x in config.VA_TBR:
-                cmd = cmd.replace(x, "").strip()
-            print(f'CMD: {cmd}')
-            self.log(cmd + ' : ')
-            return cmd
-        with sd.RawInputStream(samplerate=samplerate, blocksize=8000, device=device, dtype='int16',
+        with sd.RawInputStream(samplerate=samplerate, blocksize=8000, device=1, dtype='int16',
                                channels=1, callback=q_callback):
 
             rec = vosk.KaldiRecognizer(self.vosk_model, samplerate)
@@ -72,15 +48,51 @@ class SofiAI:
                 data = q.get()
                 if rec.AcceptWaveform(data):
                     voice = json.loads(rec.Result())["text"]
-                    print(f'Voice: {voice}')
                     if voice.startswith(config.VA_ALIAS):
-                        cmd = recognize_cmd(filter_cmd(voice))
+                        cmd = self.recognize_cmd(self.filter_cmd(voice))
                         print(cmd)
                         self.log(cmd['cmd'] + '\n')
                         if cmd['cmd'] not in config.VA_CMD_LIST.keys():
                             self.say("What?")
                         else:
+                            request[0] = voice +': ' + cmd['cmd']
                             self.execute(cmd['cmd'])
+
+    def execute_from_text(self, request: str) -> list:
+        cmd = self.recognize_cmd(self.filter_cmd(request))
+        print(cmd)
+        self.log(cmd['cmd'] + '\n')
+        if cmd['cmd'] not in config.VA_CMD_LIST.keys():
+            self.say("what?")
+        else:
+            self.execute(cmd['cmd'])
+            to_return = [request.strip(), cmd['cmd']]
+            # print(to_return)
+            return to_return
+        
+
+    def recognize_cmd(self, cmd: str):
+        rc = {'cmd': '', 'percent': 0}
+        for c, v in config.VA_CMD_LIST.items():
+
+            for x in v:
+                vrt = fuzz.ratio(cmd, x)
+                if vrt > rc['percent']:
+                    rc['cmd'] = c
+                    rc['percent'] = vrt
+
+        return rc
+
+    def filter_cmd(self, raw_voice: str):
+        cmd = raw_voice
+
+        for x in config.VA_ALIAS:
+            cmd = cmd.replace(x, "").strip()
+
+        for x in config.VA_TBR:
+            cmd = cmd.replace(x, "").strip()
+        self.log(cmd + ' : ')
+        return cmd
 
     def say(self, what: str):
         sample_rate = 48000
@@ -96,7 +108,7 @@ class SofiAI:
 
     def stop_listening(self):
         self.listen_commands = False
-    
+
     def execute(self, cmd: str) -> None:
         CoInitialize()
         if cmd == 'help':
@@ -194,23 +206,25 @@ class SofiAI:
 
         elif cmd == 'middle volume':
             self.middle_volume()
-        
+
         elif cmd == 'max volume':
             self.max_volume()
-        
+
         elif cmd == 'mute volume':
             self.mute_volume()
 
         elif cmd == 'youtube':
             self.say('Processing sir')
             self.open_youtube()
-     
+
         elif cmd == 'music':
             self.say('Processing sir')
             self.open_music()
-    
+
+        elif cmd == 'alert':
+            self.say()
         # elif cmd == 'turn off':
-            
+
         #     pass
     def increase_volume(self) -> None:
         self.set_volume('+')
@@ -227,7 +241,6 @@ class SofiAI:
     def mute_volume(self) -> None:
         self.set_volume('mute')
 
-
     def set_volume(self, degree: str) -> None:
         current_volume = self.get_volume()
         if degree == '+':
@@ -238,7 +251,7 @@ class SofiAI:
                 current_volume += 0.1
                 current_volume = min(current_volume, 1)
         elif degree == '-':
-            if current_volume == 0:               
+            if current_volume == 0:
                 return
             else:
                 current_volume -= 0.1
@@ -265,12 +278,12 @@ class SofiAI:
         volume_control = cast(interface, POINTER(IAudioEndpointVolume))
         return volume_control
 
-    def open_youtube(self):        
+    def open_youtube(self):
         webbrowser.open('https://youtube.com')
         self.say('YouTube was opened successfully')
-    
+
     def open_music(self):
-        webbrowser.open('music.yandex.com')
+        webbrowser.open('https://music.yandex.com')
         self.say('Music was opened successfully')
 
     def log(self, text: str):
@@ -278,7 +291,7 @@ class SofiAI:
         log_file.write(text)
         log_file.close()
 
-# if __name__=='__main__':    
+# if __name__=='__main__':
 #     model = SophieAI()
     # model.say('how are you sir?')
     # model.listen()

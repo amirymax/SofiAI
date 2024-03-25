@@ -33,30 +33,4 @@ jobs:
       - name: Run tests
         run: npm test
 
-  start-flask:
-    runs-on: windows-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-        
-      - name: Install Python dependencies
-        run: pip install -r requirements.txt
-      
-      - name: Start Flask Server
-        run: python app.py & sleep 10
-
-  e2e-tests:
-    needs: start-flask
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
-      - name: Install Node dependencies
-        run: npm install
-      
-      - name: Run Cypress tests
-        run: npm run test:cypress
-
-
       

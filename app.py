@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, jsonify
 from flask_socketio import SocketIO
 from SofiAI import SofiAI
 from comtypes import CoInitialize, CoUninitialize
@@ -17,7 +17,7 @@ def home():
 
 @app.route('/loaded', methods=['POST'])
 def loaded():
-    # model.say('Welcome sir')
+    model.say('Welcome sir')
     return "Page loaded successfully"
 
 
@@ -25,15 +25,24 @@ def loaded():
 def start_recording():
     # Add your code to start recording here
     model.listen_commands = True
-    model.listen()
-    return 'Listening started', 200
+    request = [1]
+    model.listen(request)
+    return jsonify({'Listening': 'True'})
 
 
 @app.route('/stop_recording', methods=['POST'])
 def stop_recording():
     model.say('Listening stopped')
     model.listen_commands = False
-    return 'Listening stopped', 200
+    return jsonify({'Listening': 'False'})
+
+@app.route('/text-request', methods=['POST'])
+def text_request():
+    req = request.json['text']    
+    response = model.execute_from_text(req)
+
+    return jsonify({'request': response[0],
+                    'cmd': response[1]})
 
 
 started = False
