@@ -110,3 +110,7 @@ decrease volume please : decrease volume
 play music babe : music
 play some music babe : music
 open youtube for m e : youtube
+volume to the middle : middle volume
+open you tube : youtube
+thank you : thanks
+thank you : thanks

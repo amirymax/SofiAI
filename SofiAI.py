@@ -28,7 +28,7 @@ class SofiAI:
             "model-small")
         self.listen_commands = True
 
-    def listen(self, request) -> None:
+    def listen(self, socketio) -> None:
         self.listen_commands = True
 
         self.say('I am listening to you sir. What did you want?')
@@ -55,8 +55,19 @@ class SofiAI:
                         if cmd['cmd'] not in config.VA_CMD_LIST.keys():
                             self.say("What?")
                         else:
-                            request[0] = voice +': ' + cmd['cmd']
+                            request ={'request': voice,
+                                      'cmd': cmd['cmd']}
                             self.execute(cmd['cmd'])
+
+                            socketio.emit('message', 'ягон гап')
+                            print('sent from listen')
+                            
+    def send_data_via_websocket(self, data, sockets):
+        for ws in sockets:
+            try:
+                ws.send(data)
+            except Exception as e:
+                print(f"Error occurred while sending data via WebSocket: {e}")
 
     def execute_from_text(self, request: str) -> list:
         cmd = self.recognize_cmd(self.filter_cmd(request))

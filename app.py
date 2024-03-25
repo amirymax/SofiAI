@@ -1,13 +1,18 @@
 from flask import Flask, render_template, request, jsonify
-from flask_socketio import SocketIO
+from flask_socketio import SocketIO, emit
 from SofiAI import SofiAI
 from comtypes import CoInitialize, CoUninitialize
 import webbrowser
 CoInitialize()
 
 app = Flask(__name__)
-socketio = SocketIO(app, cors_allowed_origins='*')
+socketio = SocketIO(app)
 model = SofiAI()
+
+@socketio.on('message')
+def handle_message(message):
+    print('Received message: ' + message)
+    emit('response', message, broadcast=True)
 
 
 @app.route('/')
@@ -26,7 +31,7 @@ def start_recording():
     # Add your code to start recording here
     model.listen_commands = True
     request = [1]
-    model.listen(request)
+    model.listen(socketio)
     return jsonify({'Listening': 'True'})
 
 
