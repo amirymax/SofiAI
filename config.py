@@ -47,6 +47,6 @@ VA_CMD_LIST = {
     'music':('play some music','yandex music','music'),
 
     # ALERT 
-    'alert': ('show alert', 'pop alert')
+    'alert': ('show message', 'message', 'alert')
     
 }

@@ -5,8 +5,8 @@
   "private": true,
   "main": "index.js",
   "scripts": {
-    "lint:js": "eslint static/js/*.js ./tests/*.js",
-    "lint:css": "stylelint **/*.css",
+    "lint:js": "eslint static/js/*.js ./tests/*.js --fix",
+    "lint:css": "stylelint **/*.css --fix",
     "lint:html": "prettier --write **/*.html",
     "test": "jest",
     "test:cypress": "cypress run"

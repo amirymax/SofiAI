@@ -8,7 +8,6 @@ from fuzzywuzzy import fuzz
 import torch
 import time
 import os
-from random import choice
 import num2word
 from comtypes import cast, POINTER, CoInitialize, CLSCTX_ALL
 from pycaw.pycaw import AudioUtilities, IAudioEndpointVolume
@@ -28,7 +27,7 @@ class SofiAI:
             "model-small")
         self.listen_commands = True
 
-    def listen(self, socketio) -> None:
+    def listen(self) -> None:
         self.listen_commands = True
 
         self.say('I am listening to you sir. What did you want?')
@@ -55,19 +54,7 @@ class SofiAI:
                         if cmd['cmd'] not in config.VA_CMD_LIST.keys():
                             self.say("What?")
                         else:
-                            request ={'request': voice,
-                                      'cmd': cmd['cmd']}
                             self.execute(cmd['cmd'])
-
-                            socketio.emit('message', 'ягон гап')
-                            print('sent from listen')
-                            
-    def send_data_via_websocket(self, data, sockets):
-        for ws in sockets:
-            try:
-                ws.send(data)
-            except Exception as e:
-                print(f"Error occurred while sending data via WebSocket: {e}")
 
     def execute_from_text(self, request: str) -> list:
         cmd = self.recognize_cmd(self.filter_cmd(request))
@@ -80,7 +67,6 @@ class SofiAI:
             to_return = [request.strip(), cmd['cmd']]
             # print(to_return)
             return to_return
-        
 
     def recognize_cmd(self, cmd: str):
         rc = {'cmd': '', 'percent': 0}
@@ -232,8 +218,8 @@ class SofiAI:
             self.say('Processing sir')
             self.open_music()
 
-        elif cmd == 'alert':
-            self.say()
+        # elif cmd == 'alert':
+        #     self.say()
         # elif cmd == 'turn off':
 
         #     pass

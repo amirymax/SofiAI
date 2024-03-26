@@ -114,3 +114,8 @@ volume to the middle : middle volume
 open you tube : youtube
 thank you : thanks
 thank you : thanks
+message : edge
+message : alert
+message : alert
+open youtube : youtube
+message : alert

@@ -37,15 +37,20 @@ describe("Main Page", () => {
     });
 
     // Нажимаем кнопку "SofiAI"
-    cy.get(".sphere-button")
-      .should("exist")
-      .click({force: true});
+    cy.get(".sphere-button").should("exist").click({ force: true });
     cy.get(".ellipse-1-DT7")
       .should("exist")
       .should("have.class", "pulse-animation");
     cy.wait(5000);
-    cy.get(".sphere-button")
-      .should("exist")
-      .click({force: true});
+    cy.get(".sphere-button").should("exist").click({ force: true });
+  });
+  describe("send function", () => {
+    it('should send an alert if input value is "alert"', () => {
+      cy.get("#text").type("show message");
+
+      cy.get("#send").click();
+
+      cy.contains("Привет!").should("be.visible");
+    });
   });
 });

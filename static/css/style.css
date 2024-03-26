@@ -106,7 +106,6 @@ body {
   color: #4c06bc;
   background-color: #d80000;
   border-radius: 0.6489rem;
-
   text-align: center;
   font-size: 1.2979rem;
   font-weight: bold;
@@ -407,10 +406,12 @@ input {
   cursor: pointer;
   border: none;
 }
+
 #send:hover{
   color: #d4d3d3;
   background-color: #4c06bc;
 }
+
 #requests {
   color: white;
   background-color: #221f1f;
@@ -423,9 +424,11 @@ input {
   padding: 10px;
   width: 350px;
 }
+
 #requests ul {
   list-style: none;
 }
+
 #requests p {
   font-family: Jura, "Source Sans Pro", sans-serif;
   font-size: 16px;
@@ -433,6 +436,7 @@ input {
   text-align: center;
   
 }
+
 #requests li:not(:last-child){
   margin-bottom: 10px;
 }
@@ -452,7 +456,7 @@ table {
   vertical-align: middle; 
   background: none;
   border: none;
-  color: rgb(255, 187, 0);
+  color: rgb(255 187 0);
 }
 
 .thumbUp:hover, .thumbDown:hover{
