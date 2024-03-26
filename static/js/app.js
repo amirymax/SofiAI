@@ -27,7 +27,8 @@ function start_stop_recording () {
             response.statusText
           )
         }
-        return response.json()
+
+        // return response.json()
       })
       .then(data => {
         console.log('Response from server:', data)
@@ -45,7 +46,7 @@ function start_stop_recording () {
             response.statusText
           )
         }
-        return response.json()
+        // return response.json()
       })
       .then(data => {
         console.log('Response from server:', data)
