@@ -119,3 +119,28 @@ message : alert
 message : alert
 open youtube : youtube
 message : alert
+open music : music
+message : alert
+mute volume : mute volume
+volume to the middle : middle volume
+alert : alert
+open youtube : youtube
+message : alert
+message : alert
+open youtube : youtube
+messaage : alert
+alert : alert
+alert : alert
+alert : alert
+open youtube : youtube
+alert : alert
+alert : alert
+alert : alert
+alert : alert
+alert : alert
+alert : alert
+alert : alert
+alert : alert
+alert : alert
+alert : alert
+open youtube : youtube

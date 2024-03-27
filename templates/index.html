@@ -1,6 +1,20 @@
 <!doctype html>
 <html>
   <head>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-44PB49M2RZ"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-44PB49M2RZ");
+    </script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- <link rel="stylesheet" href="../static/css/style.css">
@@ -31,7 +45,7 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Handjet%3A800"
     />
-    
+
     <link
       rel="icon"
       href="{{url_for('static', filename='icon.png')}}"
@@ -46,10 +60,8 @@
       src="{{ url_for('static', filename='js/app.js') }}"
     ></script>
     <title>SofiAI</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
   </head>
   <body>
-
     <div id="requests">
       <p>Requests will appear be here</p>
       <table id="requests-table">

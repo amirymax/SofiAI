@@ -196,7 +196,7 @@ function addToTable (requestText) {
   thumbUpButton.innerHTML = '<i class="fa fa-thumbs-up"></i>'
   thumbUpButton.classList.add('thumbUp')
   thumbUpButton.addEventListener('click', () => {
-    console.log('Thumb up for: ' + requestText)
+    gtag('event', 'like', { 'event_category': 'Button', 'event_label': 'Like' })
   })
 
   // Create thumb down button
@@ -204,7 +204,7 @@ function addToTable (requestText) {
   thumbDownButton.innerHTML = '<i class="fa fa-thumbs-down"></i>'
   thumbDownButton.classList.add('thumbDown')
   thumbDownButton.addEventListener('click', () => {
-    console.log('Thumb down for: ' + requestText)
+    gtag('event', 'dislike', { 'event_category': 'Button', 'event_label': 'Dislike' })
   })
 
   thumbCell.appendChild(thumbUpButton)
